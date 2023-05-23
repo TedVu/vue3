@@ -1,6 +1,7 @@
 <script setup></script>
 
 <template>
+  <h3>{{ counterTitle }}</h3>
   <div class="home">
     <button class="btn" @click="decreaseCounter">-</button>
     <span class="counter"> {{ counter }}</span>
@@ -9,25 +10,17 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
-export default {
-  setup() {
-    const counter = ref(10)
+const counter = ref(10),
+  counterTitle = ref('Counter Title')
 
-    const increaseCounter = () => {
-      counter.value++
-    }
+const increaseCounter = () => {
+  counter.value++
+}
 
-    const decreaseCounter = () => {
-      counter.value--
-    }
-    return {
-      counter,
-      increaseCounter,
-      decreaseCounter
-    }
-  }
+const decreaseCounter = () => {
+  counter.value--
 }
 </script>
 
