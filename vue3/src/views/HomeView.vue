@@ -1,9 +1,6 @@
 <template>
   <div>
-    <ChildComponent
-      :modelValue="counterData.title"
-      @update:modelValue="counterData.title = $event"
-    />
+    <ChildComponent v-model="counterData.title" />
     <input v-model="counterData.title" />
   </div>
 </template>

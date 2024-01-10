@@ -1,19 +1,19 @@
 <template>
-  <div>{{ modelValue }}</div>
+  <div>{{ value }}</div>
 </template>
 
 <script setup lang="ts">
 import { watch } from 'vue'
 
 const props = defineProps({
-  modelValue: {
+  value: {
     type: String,
     default: ''
   }
 })
 
 watch(
-  () => props.modelValue,
+  () => props.value,
   (newValue) => {
     console.log(`New value is ${newValue}`)
   }
