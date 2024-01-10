@@ -1,7 +1,9 @@
 <template>
   <div>
-    <ChildComponent v-model="counterData.title" />
-    <input v-model="counterData.title" />
+    <ChildComponent v-model:first-name="counterData.title" v-model:last-name="counterData.title" />
+    <div>
+      <input v-model="counterData.title" />
+    </div>
   </div>
 </template>
 
