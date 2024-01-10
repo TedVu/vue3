@@ -1,15 +1,21 @@
 <script setup>
-defineProps({
-  firstName: String,
-  lastName: String
+const props = defineProps({
+  modelValue: String,
+  modelModifiers: { default: () => ({}) }
 })
 
-defineEmits(['update:firstName', 'update:lastName'])
+const emit = defineEmits(['update:modelValue'])
+
+function emitValue(e) {
+  let value = e.target.value
+  console.log(`debug ${JSON.stringify(props)}`)
+  if (props.modelModifiers.capitalize) {
+    value = value.charAt(0).toUpperCase() + value.slice(1)
+  }
+  emit('update:modelValue', value)
+}
 </script>
 
 <template>
-  <div>Child Component First Name:</div>
-  <input type="text" :value="firstName" @input="$emit('update:firstName', $event.target.value)" />
-  <div>Child Component Last Name:</div>
-  <input type="text" :value="lastName" @input="$emit('update:lastName', $event.target.value)" />
+  <input type="text" :value="modelValue" @input="emitValue" />
 </template>
