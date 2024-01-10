@@ -8,7 +8,6 @@ const emit = defineEmits(['update:modelValue'])
 
 function emitValue(e) {
   let value = e.target.value
-  console.log(`debug ${JSON.stringify(props)}`)
   if (props.modelModifiers.capitalize) {
     value = value.charAt(0).toUpperCase() + value.slice(1)
   }
@@ -18,4 +17,5 @@ function emitValue(e) {
 
 <template>
   <input type="text" :value="modelValue" @input="emitValue" />
+  <slot />
 </template>

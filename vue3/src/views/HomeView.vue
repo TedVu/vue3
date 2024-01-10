@@ -1,7 +1,9 @@
 <template>
   <div>
     <div>Value from parent is {{ counterData.title }}</div>
-    <ChildComponent v-model.capitalize="counterData.title" />
+    <ChildComponent v-model.capitalize="counterData.title"
+      >Some slot content displayed</ChildComponent
+    >
   </div>
 </template>
 
