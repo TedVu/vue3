@@ -12,6 +12,6 @@ const props = defineProps({
 <!-- <MyComponent> template -->
 <template>
   <div>
-    <slot :text="props.greetingMessage" :count="1">Fallback</slot>
+    <slot name="named" :namedText="props.greetingMessage"></slot>
   </div>
 </template>

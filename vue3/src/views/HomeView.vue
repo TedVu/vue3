@@ -1,6 +1,8 @@
 <template>
   <div>
-    <ChildComponent v-slot="{ text, count }"> {{ text }} {{ count }} </ChildComponent>
+    <ChildComponent>
+      <template #named="{ namedText }">This is a named slot {{ namedText }}</template>
+    </ChildComponent>
   </div>
 </template>
 
