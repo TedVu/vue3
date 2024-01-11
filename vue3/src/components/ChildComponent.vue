@@ -19,4 +19,5 @@ function emitValue(e) {
   <input type="text" :value="modelValue" @input="emitValue" />
   <slot />
   <slot name="namedSlot"></slot>
+  <slot name="dynamicSlotName">Dynamic Slotname</slot>
 </template>
