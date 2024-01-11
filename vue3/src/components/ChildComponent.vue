@@ -18,4 +18,5 @@ function emitValue(e) {
 <template>
   <input type="text" :value="modelValue" @input="emitValue" />
   <slot />
+  <slot name="namedSlot"></slot>
 </template>

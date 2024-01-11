@@ -2,8 +2,9 @@
   <div>
     <div>Value from parent is {{ counterData.title }}</div>
     <ChildComponent v-model.capitalize="counterData.title"
-      >Some slot content displayed</ChildComponent
-    >
+      >Some slot content displayed
+      <template v-slot:namedSlot> Header named slot </template>
+    </ChildComponent>
   </div>
 </template>
 
