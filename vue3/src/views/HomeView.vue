@@ -1,23 +1,11 @@
 <template>
   <div>
-    <div>Value from parent is {{ counterData.title }}</div>
-    <ChildComponent v-model.capitalize="counterData.title"
-      >Some slot content displayed
-      <template v-slot:namedSlot> Header named slot </template>
-      <template #[slotName]></template>
-    </ChildComponent>
+    <ChildComponent v-slot="{ text, count }"> {{ text }} {{ count }} </ChildComponent>
   </div>
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
 import ChildComponent from '../components/ChildComponent.vue'
-
-const counterData = reactive({
-  title: 'My Counter'
-})
-
-const slotName = ref('dynamicSlotName')
 </script>
 
 <style>

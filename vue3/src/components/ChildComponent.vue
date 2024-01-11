@@ -1,23 +1,17 @@
 <script setup>
 const props = defineProps({
   modelValue: String,
+  greetingMessage: {
+    type: String,
+    default: 'Hello World!'
+  },
   modelModifiers: { default: () => ({}) }
 })
-
-const emit = defineEmits(['update:modelValue'])
-
-function emitValue(e) {
-  let value = e.target.value
-  if (props.modelModifiers.capitalize) {
-    value = value.charAt(0).toUpperCase() + value.slice(1)
-  }
-  emit('update:modelValue', value)
-}
 </script>
 
+<!-- <MyComponent> template -->
 <template>
-  <input type="text" :value="modelValue" @input="emitValue" />
-  <slot />
-  <slot name="namedSlot"></slot>
-  <slot name="dynamicSlotName">Dynamic Slotname</slot>
+  <div>
+    <slot :text="props.greetingMessage" :count="1">Fallback</slot>
+  </div>
 </template>
