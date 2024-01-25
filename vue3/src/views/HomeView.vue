@@ -1,13 +1,17 @@
 <template>
   <div>
-    <ChildComponent>
-      <template #named="{ namedText }">This is a named slot {{ namedText }}</template>
-    </ChildComponent>
+    <ChildComponent />
+    <input type="text" v-model="title" />
   </div>
 </template>
 
 <script setup>
+import { provide, ref } from 'vue'
 import ChildComponent from '../components/ChildComponent.vue'
+
+const title = ref('ted')
+
+provide('title', title)
 </script>
 
 <style>
